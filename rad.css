@@ -1,0 +1,116 @@
+::-moz-selection { /* Code for Firefox */
+  color: white;
+  background: #00beff;
+}
+
+::selection {
+  color: white;
+  background: #00beff;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  color: #fff;
+  background: linear-gradient(132deg, #ff0095, #00beff, #00ffb9);
+  background-size: 600% 600%;
+
+  -webkit-animation: bgAnimation 40s ease infinite;
+  -moz-animation: bgAnimation 40s ease infinite;
+  animation: bgAnimation 40s ease infinite;
+  display: flex;
+  flex-direction: column;
+}
+
+main {
+  flex: 1;
+}
+
+h1 {
+  font-size: 120px;
+  font-weight: 900;
+  letter-spacing: -5px;;
+  text-align: center;
+  margin-top: 24px;
+}
+
+nav {}
+
+ul {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+}
+
+li {
+  list-style: none;
+  padding: 0 8px;
+}
+
+a {
+  color: #fff;
+  text-decoration: none;
+  display: block;
+  font-size: 24px;
+  font-weight: 600;
+  padding: 6px 16px;
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  transition: transform 0.1s ease-in-out;
+}
+
+a:hover {
+  transform: scale(1.25);
+  background: linear-gradient(45deg, #C6FFDD, #FBD786, #f7797d);
+  color: #2b0e04;
+}
+
+section {
+  margin-top: 24px;
+}
+
+p {
+  font-weight: 600;
+  text-align: center;
+  font-size: 32px;
+  line-height: 1.2;
+}
+
+select {
+  appearance: none;
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+  border: none;
+  padding: 4px;
+  text-align: center;
+  border-radius: 12px;
+  margin: 8px auto 0 auto;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: inherit;
+  line-height: inherit;
+  outline: none;
+  cursor: pointer;
+  transition: transform 0.1s ease-in-out, background-color 0.1s ease-in-out;
+}
+
+select:hover {
+  transform: scale(1.25);
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+@-webkit-keyframes bgAnimation {
+  0%{background-position:18% 0%}
+  50%{background-position:83% 100%}
+  100%{background-position:18% 0%}
+}
+@-moz-keyframes bgAnimation {
+  0%{background-position:18% 0%}
+  50%{background-position:83% 100%}
+  100%{background-position:18% 0%}
+}
+@keyframes bgAnimation {
+  0%{background-position:18% 0%}
+  50%{background-position:83% 100%}
+  100%{background-position:18% 0%}
+}

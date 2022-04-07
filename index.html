@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kuldar Kalvik</title>
+  <meta name="description" content="Website of Kuldar Kalvik">
+
+  <style>
+    /* Use a more-intuitive box-sizing model. */
+    *, *::before, *::after { box-sizing: border-box; }
+    /* Remove default margin */
+    * { margin: 0; }
+    /* Allow percentage-based heights in the application */
+    html, body { height: 100%; }
+    /* Add accessible line-height & improve text rendering */
+    body { line-height: 1.5; -webkit-font-smoothing: antialiased; }
+    /* Improve media defaults */
+    img, picture, video, canvas, svg { display: block; max-width: 100%; }
+    /* Remove built-in form typography styles */
+    input, button, textarea, select { font: inherit; }
+    /* Avoid text overflows */
+    p, h1, h2, h3, h4, h5, h6 { overflow-wrap: break-word; }
+    /* Create a root stacking context */
+    #root, #__next { isolation: isolate; }
+  </style>
+
+  <link rel="stylesheet" href="plain.css">
+</head>
+
+<body>
+
+  <select name="styles" id="styles" onchange="changeStyles(this)">
+    <option value="plain">Plain</option>
+    <option value="rad">Rad</option>
+    <option value="minimal">Minimal</option>
+  </select>
+
+  <main>
+    <h1>Kuldar Kalvik</h1>
+
+    <nav>
+      <ul>
+        <li><a href="https://github.com/kuldar" alt="Github">Github</a></li>
+        <li><a href="https://twitter.com/kkuldar" alt="Twitter">Twitter</a></li>
+      </ul>
+    </nav>
+
+    <section>
+      <p>Recovering maker of web things.</p>
+      <p>Into design, code, photography and all the other cliche things.</p>
+    </section>
+  </main>
+
+</body>
+<script>
+
+  if (window.location.search.indexOf('?style=') === 0) {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    const style = urlSearchParams.get('style');
+
+    let select = document.getElementById("styles");
+    select.value = style;
+
+    const link = createStyleLink(style);
+    document.querySelector('link[href$=".css"]').remove();
+    document.getElementsByTagName("head")[0].appendChild(link);
+  }
+
+  function createStyleLink(style) {
+    var link = document.createElement("link");
+    link.rel = "stylesheet";
+    link.href = style + ".css";
+    return link;
+  }
+
+  function changeStyles({ value }) {
+    const urlSearchParams = new URLSearchParams(window.location.search);
+    urlSearchParams.set('style', value);
+    window.location.search = urlSearchParams;
+  }
+</script>
+</html>
